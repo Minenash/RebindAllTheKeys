@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.minenash.bind_all_the_keys.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "GameOptionsMixin"
+  ],
+  "client": [
+    "ControlsListWidgetKeyBindingEntryMixin",
+    "DebugHudMixin",
+    "GameModeSelectionScreenMixin",
+    "KeyBindingMixin",
+    "KeyboardMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

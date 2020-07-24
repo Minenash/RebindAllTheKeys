@@ -1,0 +1,21 @@
+{
+  "rebind_all_the_keys.keybind_group.debug" : "Debug Keys (Debug Key + Below)",
+  "rebind_all_the_keys.keybind.debug_key" : "(!) Debug Key",
+  "rebind_all_the_keys.keybind.reload_chunks" : "Reload Chunks",
+  "rebind_all_the_keys.keybind.show_hitboxes" : "Show Hitboxes",
+  "rebind_all_the_keys.keybind.copy_location" : "Copy Location to Clipboard",
+  "rebind_all_the_keys.keybind.clear_chat" : "Clear Chat",
+  "rebind_all_the_keys.keybind.cycle_render_distance" : "Cycle Render Distance",
+  "rebind_all_the_keys.keybind.show_chunk_boundaries" : "Show Chunk Boundaries",
+  "rebind_all_the_keys.keybind.advance_tooltips" : "Advance Tooltips",
+  "rebind_all_the_keys.keybind.copy_data_to_clipboard" : "Inspect Block/Entity Data",
+  "rebind_all_the_keys.keybind.swap_gamemode" : "Prev Gamemode <-> Spectator",
+  "rebind_all_the_keys.keybind.pause_on_lost_focus" : "Toggle Pause on Lost Focus",
+  "rebind_all_the_keys.keybind.show_debug_bindings" : "Show Debug Keybindings",
+  "rebind_all_the_keys.keybind.reload_resources" : "Reload Resources",
+  "rebind_all_the_keys.keybind.pause_no_menu" : "Pause With No Menu",
+  "rebind_all_the_keys.keybind.gamemode_switcher" : "Gamemode Switcher",
+  "rebind_all_the_keys.keybind.intentional_crash" : "Intentional Crash",
+  "rebind_all_the_keys.keybind.intentional_crash.button.held" : " (held)",
+  "rebind_all_the_keys.keybind.toggle_narrator_override" : "Toggle Narrator (Override)"
+}
