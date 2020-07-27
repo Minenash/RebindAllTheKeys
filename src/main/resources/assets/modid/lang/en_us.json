@@ -17,5 +17,6 @@
   "rebind_all_the_keys.keybind.gamemode_switcher" : "Gamemode Switcher",
   "rebind_all_the_keys.keybind.intentional_crash" : "Intentional Crash",
   "rebind_all_the_keys.keybind.intentional_crash.button.held" : " (held)",
-  "rebind_all_the_keys.keybind.toggle_narrator_override" : "Toggle Narrator (Override)"
+  "rebind_all_the_keys.keybind.toggle_narrator_override" : "Toggle Narrator (Override)",
+  "rebind_all_the_keys.keybind.toggle_hud" : "Toggle Hud"
 }
