@@ -18,7 +18,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.minenash.bind_all_the_keys.RebindAllTheKeys"
+      "com.minenash.rebind_all_the_keys.RebindAllTheKeys"
     ]
   },
   "mixins": [

@@ -1,6 +1,6 @@
-package com.minenash.bind_all_the_keys.mixin;
+package com.minenash.rebind_all_the_keys.mixin;
 
-import com.minenash.bind_all_the_keys.RebindAllTheKeys;
+import com.minenash.rebind_all_the_keys.RebindAllTheKeys;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.options.ControlsListWidget;
@@ -8,8 +8,6 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.options.KeyBinding;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -29,7 +27,7 @@ public class ControlsListWidgetKeyBindingEntryMixin {
         if (a == RebindAllTheKeys.INTENTIONAL_CRASH || b == RebindAllTheKeys.INTENTIONAL_CRASH)
             return false;
         if (a != RebindAllTheKeys.DEBUG_KEY && b != RebindAllTheKeys.DEBUG_KEY
-          && a.getCategory().equals("rebind_all_the_keys.keybind_group.debug") !=  b.getCategory().equals("rebind_all_the_keys.keybind_group.debug"))
+                && a.getCategory().equals("rebind_all_the_keys.keybind_group.debug") !=  b.getCategory().equals("rebind_all_the_keys.keybind_group.debug"))
             return false;
         return a.equals(b);
     }

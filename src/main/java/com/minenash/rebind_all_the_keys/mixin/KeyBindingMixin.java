@@ -1,6 +1,6 @@
-package com.minenash.bind_all_the_keys.mixin;
+package com.minenash.rebind_all_the_keys.mixin;
 
-import com.minenash.bind_all_the_keys.RebindAllTheKeys;
+import com.minenash.rebind_all_the_keys.RebindAllTheKeys;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.options.KeyBinding;
@@ -16,6 +16,7 @@ public class KeyBindingMixin {
     @Inject(method = "updateKeysByCode", at = @At("TAIL"))
     private static void generateDebugRebinds(CallbackInfo _info) {
         RebindAllTheKeys.updateDebugKeybinds();
+
     }
 
 
