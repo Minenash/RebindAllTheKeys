@@ -4,7 +4,7 @@ import com.minenash.rebind_all_the_keys.RebindAllTheKeys;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.GameModeSelectionScreen;
-import net.minecraft.text.StringRenderable;
+import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
@@ -26,8 +26,8 @@ public class GameModeSelectionScreenMixin {
     }
 
     @ModifyArg(method = "render", at = @At(value = "INVOKE",
-            target = "Lnet/minecraft/client/gui/screen/GameModeSelectionScreen;drawCenteredText(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/text/StringRenderable;III)V"))
-    public StringRenderable getGamemodeSwitcherKeyString(StringRenderable _in) {
+            target = "Lnet/minecraft/client/gui/screen/GameModeSelectionScreen;drawCenteredText(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/text/Text;III)V"))
+    public Text getGamemodeSwitcherKeyString(Text _in) {
         if (RebindAllTheKeys.gamemodeSwitcherSelectText == null)
             RebindAllTheKeys.updateGamemodeSwitcherSelectText();
         return RebindAllTheKeys.gamemodeSwitcherSelectText;

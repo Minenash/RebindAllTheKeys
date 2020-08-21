@@ -18,10 +18,6 @@ public class InputUtilKeyMixin {
 
     @Shadow @Final private InputUtil.Type type;
 
-    public InputUtil.Type getType() {
-        return type;
-    }
-
     @Redirect(method = "method_27444", at = @At(value = "INVOKE", target = "Ljava/util/function/BiFunction;apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"))
     private static Object translateNegativeKeys(BiFunction<Integer, String, Text> textTranslator, Object code_in, Object translationKey, InputUtil.Type type) {
         int code = (int)code_in == -1 ? -1 : Math.abs((int)code_in);

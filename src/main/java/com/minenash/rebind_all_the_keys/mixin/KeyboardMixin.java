@@ -32,8 +32,6 @@ public abstract class KeyboardMixin {
 
 	@ModifyArg(method = "onKey", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Keyboard;processF3(I)Z"))
 	public int remapDebugKeys(int key) {
-		System.out.println("In: " + key);
-		System.out.println("Out: " + DEBUG_REBINDS.getOrDefault(key,0));
 		return DEBUG_REBINDS.getOrDefault(key,0);
 	}
 
@@ -61,13 +59,11 @@ public abstract class KeyboardMixin {
 
 	@Redirect(method = "onKey", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;hasControlDown()Z"))
 	public boolean removeCtrlRequirementIfToggleNarratorOverrideIsUsed() {
-		System.out.println("5");
 		return Screen.hasControlDown() || !RebindAllTheKeys.TOGGLE_NARRATOR_OVERRIDE.isUnbound();
 	}
 
 	@Redirect(method = "pollDebugCrash", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Keyboard;debugWarn(Ljava/lang/String;[Ljava/lang/Object;)V"))
 	public void showActualIntentionalCrashKeybind(Keyboard keyboard, String key, Object... objects) {
-		System.out.println("6");
 
 		this.client.inGameHud.getChatHud().addMessage((new LiteralText(""))
 				.append((new TranslatableText("debug.prefix")).formatted(Formatting.YELLOW, Formatting.BOLD))
