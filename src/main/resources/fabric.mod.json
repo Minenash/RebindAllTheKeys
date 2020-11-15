@@ -17,7 +17,7 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
+    "client": [
       "com.minenash.rebind_all_the_keys.RebindAllTheKeys"
     ]
   },
@@ -29,5 +29,9 @@
     "fabricloader": ">=0.7.4",
     "fabric": "*",
     "minecraft": ">=1.16.2"
+  },
+
+  "custom": {
+    "modmenu:clientsideOnly": true
   }
 }

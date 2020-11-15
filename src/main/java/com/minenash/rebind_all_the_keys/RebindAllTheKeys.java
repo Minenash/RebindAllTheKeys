@@ -1,8 +1,8 @@
 package com.minenash.rebind_all_the_keys;
 
+import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.options.KeyBinding;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Environment(EnvType.CLIENT)
-public class RebindAllTheKeys implements ModInitializer {
+public class RebindAllTheKeys implements ClientModInitializer {
 
 	public static boolean isAmecsInstalled = false;
 
@@ -57,7 +57,7 @@ public class RebindAllTheKeys implements ModInitializer {
 
 
 	@Override
-	public void onInitialize() {
+	public void onInitializeClient() {
 		KeyBindingHelper.registerKeyBinding(DEBUG_KEY);
 		KeyBindingHelper.registerKeyBinding(RELOAD_CHUNKS);
 		KeyBindingHelper.registerKeyBinding(SHOW_HITBOXES);
