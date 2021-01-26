@@ -16,7 +16,6 @@ public class KeyBindingMixin {
     @Inject(method = "updateKeysByCode", at = @At("TAIL"))
     private static void generateDebugRebinds(CallbackInfo _info) {
         RebindAllTheKeys.updateDebugKeybinds();
-
     }
 
 

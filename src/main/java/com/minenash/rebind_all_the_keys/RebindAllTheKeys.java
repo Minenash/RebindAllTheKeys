@@ -3,6 +3,7 @@ package com.minenash.rebind_all_the_keys;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.options.KeyBinding;
@@ -44,6 +45,7 @@ public class RebindAllTheKeys implements ModInitializer {
 
 	public static final KeyBinding TOGGLE_HUD = miscKeybind("toggle_hud", GLFW.GLFW_KEY_F1);
 	public static final KeyBinding TOGGLE_NARRATOR_OVERRIDE = miscKeybind("toggle_narrator_override", GLFW.GLFW_KEY_UNKNOWN);
+	public static final KeyBinding TOGGLE_AUTO_JUMP = miscKeybind("toggle_auto_jump", GLFW.GLFW_KEY_UNKNOWN);
 
 	public static Text gamemodeSwitcherSelectText = null;
 
@@ -58,6 +60,8 @@ public class RebindAllTheKeys implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		isAmecsInstalled = FabricLoader.getInstance().isModLoaded("amecs");
+
 		KeyBindingHelper.registerKeyBinding(DEBUG_KEY);
 		KeyBindingHelper.registerKeyBinding(RELOAD_CHUNKS);
 		KeyBindingHelper.registerKeyBinding(SHOW_HITBOXES);
@@ -79,8 +83,15 @@ public class RebindAllTheKeys implements ModInitializer {
 		KeyBindingHelper.registerKeyBinding(INTENTIONAL_CRASH);
 		KeyBindingHelper.registerKeyBinding(TOGGLE_NARRATOR_OVERRIDE);
 		KeyBindingHelper.registerKeyBinding(TOGGLE_HUD);
+		KeyBindingHelper.registerKeyBinding(TOGGLE_AUTO_JUMP);
 
-		isAmecsInstalled = FabricLoader.getInstance().isModLoaded("amecs");
+		ClientTickEvents.END_CLIENT_TICK.register(client -> {
+			while (TOGGLE_AUTO_JUMP.wasPressed()) {
+				boolean value = !client.options.autoJump;
+				client.options.autoJump = value;
+				client.player.sendMessage(new TranslatableText("rebind_all_the_keys.keybind.toggle_auto_jump.msg." + value), true);
+			}
+		});
 
 	}
 
