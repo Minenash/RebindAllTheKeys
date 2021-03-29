@@ -3,14 +3,12 @@
   "minVersion": "0.8",
   "package": "com.minenash.rebind_all_the_keys.mixin",
   "compatibilityLevel": "JAVA_8",
-  "mixins": [
-    "GameOptionsMixin"
-  ],
   "client": [
     "ControlsListWidgetKeyBindingEntryMixin",
     "ControlsOptionsScreenMixin",
     "DebugHudMixin",
     "GameModeSelectionScreenMixin",
+    "GameOptionsMixin",
     "InputKeyMixin",
     "InputUtilKeyMixin",
     "InputUtilTypeAccessor",

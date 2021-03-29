@@ -15,9 +15,9 @@
   "license": "MIT",
   "icon": "assets/modid/icon.png",
 
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
-    "main": [
+    "client": [
       "com.minenash.rebind_all_the_keys.RebindAllTheKeys"
     ]
   },
