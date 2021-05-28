@@ -13,7 +13,7 @@
   },
 
   "license": "MIT",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/rebind_all_the_keys/icon.png",
 
   "environment": "client",
   "entrypoints": {
@@ -26,8 +26,8 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": ">=1.16.2"
+    "minecraft": "1.17.x"
   }
 }

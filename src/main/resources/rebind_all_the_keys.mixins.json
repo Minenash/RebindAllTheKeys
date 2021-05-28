@@ -2,7 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.minenash.rebind_all_the_keys.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_16",
   "client": [
     "ControlsListWidgetKeyBindingEntryMixin",
     "ControlsOptionsScreenMixin",

@@ -3,9 +3,9 @@ package com.minenash.rebind_all_the_keys.mixin;
 import com.minenash.rebind_all_the_keys.RebindAllTheKeys;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.gui.screen.options.ControlsListWidget;
+import net.minecraft.client.gui.screen.option.ControlsListWidget;
 import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.client.options.KeyBinding;
+import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.TranslatableText;
@@ -22,7 +22,7 @@ public class ControlsListWidgetKeyBindingEntryMixin {
 
     @Shadow @Final private KeyBinding binding;
 
-    @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/options/KeyBinding;equals(Lnet/minecraft/client/options/KeyBinding;)Z"))
+    @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/KeyBinding;equals(Lnet/minecraft/client/option/KeyBinding;)Z"))
     public boolean ignoreConflictIfDebug(KeyBinding a, KeyBinding b) {
         if (a == RebindAllTheKeys.INTENTIONAL_CRASH || b == RebindAllTheKeys.INTENTIONAL_CRASH)
             return false;

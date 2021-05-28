@@ -7,7 +7,7 @@ import net.minecraft.client.Keyboard;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.options.KeyBinding;
+import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
@@ -63,7 +63,7 @@ public abstract class KeyboardMixin {
 	}
 
 	@Redirect(method = "pollDebugCrash", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Keyboard;debugWarn(Ljava/lang/String;[Ljava/lang/Object;)V"))
-	public void showActualIntentionalCrashKeybind(Keyboard keyboard, String key, Object... objects) {
+	public void showActualIntentionalCrashKeybind(Keyboard keyboard, String key, Object[] objects) {
 
 		this.client.inGameHud.getChatHud().addMessage((new LiteralText(""))
 				.append((new TranslatableText("debug.prefix")).formatted(Formatting.YELLOW, Formatting.BOLD))
