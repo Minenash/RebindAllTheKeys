@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_16",
   "client": [
     "ControlsListWidgetKeyBindingEntryMixin",
-    "ControlsOptionsScreenMixin",
+    "KeybindsScreenMixin",
     "DebugHudMixin",
     "GameModeSelectionScreenMixin",
     "GameOptionsMixin",

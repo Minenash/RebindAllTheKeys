@@ -28,7 +28,7 @@ public abstract class KeyboardMixin {
 
 	@Shadow @Final private MinecraftClient client;
 
-	@Shadow protected abstract void debugWarn(String string, Object... objects);
+	@Shadow protected abstract void debugLog(String string, Object... objects);
 
 	@ModifyArg(method = "onKey", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Keyboard;processF3(I)Z"))
 	public int remapDebugKeys(int key) {
@@ -62,7 +62,7 @@ public abstract class KeyboardMixin {
 		return Screen.hasControlDown() || !RebindAllTheKeys.TOGGLE_NARRATOR_OVERRIDE.isUnbound();
 	}
 
-	@Redirect(method = "pollDebugCrash", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Keyboard;debugWarn(Ljava/lang/String;[Ljava/lang/Object;)V"))
+	@Redirect(method = "pollDebugCrash", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Keyboard;debugLog(Ljava/lang/String;[Ljava/lang/Object;)V"))
 	public void showActualIntentionalCrashKeybind(Keyboard keyboard, String key, Object[] objects) {
 
 		this.client.inGameHud.getChatHud().addMessage((new LiteralText(""))
@@ -86,7 +86,7 @@ public abstract class KeyboardMixin {
 	public void showDebugKeybinds(int key, CallbackInfoReturnable<Boolean> info) {
 		if (key != 81)
 			return;
-		this.debugWarn("debug.help.message");
+		this.debugLog("debug.help.message");
 
 		ChatHud chatHud = this.client.inGameHud.getChatHud();
 		chatHud.addMessage(changeBinding("debug.reload_chunks.help", "A", RELOAD_CHUNKS));

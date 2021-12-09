@@ -3,6 +3,7 @@ package com.minenash.rebind_all_the_keys.mixin;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.option.ControlsOptionsScreen;
+import net.minecraft.client.gui.screen.option.KeybindsScreen;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
@@ -11,8 +12,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Environment(EnvType.CLIENT)
-@Mixin(ControlsOptionsScreen.class)
-public class ControlsOptionsScreenMixin {
+@Mixin(KeybindsScreen.class)
+public class KeybindsScreenMixin {
 
     @Redirect(method = "keyPressed", at = @At(value = "INVOKE", ordinal = 1,
             target = "Lnet/minecraft/client/option/GameOptions;setKeyCode(Lnet/minecraft/client/option/KeyBinding;Lnet/minecraft/client/util/InputUtil$Key;)V"))
