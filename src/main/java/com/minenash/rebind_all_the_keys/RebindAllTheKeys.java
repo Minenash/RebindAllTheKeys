@@ -8,9 +8,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import org.lwjgl.glfw.GLFW;
 
@@ -87,9 +85,9 @@ public class RebindAllTheKeys implements ClientModInitializer {
 
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			while (TOGGLE_AUTO_JUMP.wasPressed()) {
-				boolean value = !client.options.autoJump;
-				client.options.autoJump = value;
-				client.player.sendMessage(new TranslatableText("rebind_all_the_keys.keybind.toggle_auto_jump.msg." + value), true);
+				boolean value = !client.options.getAutoJump().getValue();
+				client.options.getAutoJump().setValue(value);
+				client.player.sendMessage(Text.translatable("rebind_all_the_keys.keybind.toggle_auto_jump.msg." + value), true);
 			}
 		});
 
@@ -117,8 +115,8 @@ public class RebindAllTheKeys implements ClientModInitializer {
 	}
 
 	public static void updateGamemodeSwitcherSelectText() {
-		gamemodeSwitcherSelectText = new TranslatableText("debug.gamemodes.select_next",
-				new LiteralText("[").formatted(Formatting.AQUA).append(RebindAllTheKeys.GAMEMODE_SWITCHER.getBoundKeyLocalizedText()).append("]"));
+		gamemodeSwitcherSelectText = Text.translatable("debug.gamemodes.select_next",
+				Text.literal("[").formatted(Formatting.AQUA).append(RebindAllTheKeys.GAMEMODE_SWITCHER.getBoundKeyLocalizedText()).append("]"));
 	}
 
 	public static String getDebugKeybindString(KeyBinding key) {
