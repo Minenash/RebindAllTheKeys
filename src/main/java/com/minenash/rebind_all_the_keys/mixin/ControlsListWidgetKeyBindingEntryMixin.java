@@ -8,7 +8,7 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -38,7 +38,7 @@ public class ControlsListWidgetKeyBindingEntryMixin {
             String msg = button.getMessage().getString();
             if (!(msg.contains(">") && msg.contains("<"))
                && !msg.contains(I18n.translate("rebind_all_the_keys.keybind.intentional_crash.button.held")))
-                button.setMessage(button.getMessage().shallowCopy().append(new TranslatableText("rebind_all_the_keys.keybind.intentional_crash.button.held")));
+                button.setMessage(button.getMessage().copy().append(Text.translatable("rebind_all_the_keys.keybind.intentional_crash.button.held")));
         }
         button.renderButton(matrices, mouseX, mouseY, delta);
 

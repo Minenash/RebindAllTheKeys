@@ -9,9 +9,7 @@ import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.resource.language.I18n;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Final;
@@ -65,8 +63,8 @@ public abstract class KeyboardMixin {
 	@Redirect(method = "pollDebugCrash", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Keyboard;debugLog(Ljava/lang/String;[Ljava/lang/Object;)V"))
 	public void showActualIntentionalCrashKeybind(Keyboard keyboard, String key, Object[] objects) {
 
-		this.client.inGameHud.getChatHud().addMessage((new LiteralText(""))
-				.append((new TranslatableText("debug.prefix")).formatted(Formatting.YELLOW, Formatting.BOLD))
+		this.client.inGameHud.getChatHud().addMessage((Text.literal(""))
+				.append((Text.translatable("debug.prefix")).formatted(Formatting.YELLOW, Formatting.BOLD))
 				.append(" ").append(I18n.translate(key).replace("F3 + C", RebindAllTheKeys.getDebugKeybindString(INTENTIONAL_CRASH))));
 	}
 
@@ -102,9 +100,9 @@ public abstract class KeyboardMixin {
 		chatHud.addMessage(changeBinding("debug.reload_resourcepacks.help", "T", RELOAD_RESOURCES));
 		chatHud.addMessage(changeBinding("debug.gamemodes.help", "F4", GAMEMODE_SWITCHER));
 
-		chatHud.addMessage(new LiteralText(I18n.translate("debug.pause.help").replace("F3", RebindAllTheKeys.getDebugKeybindString(null))));
+		chatHud.addMessage(Text.literal(I18n.translate("debug.pause.help").replace("F3", RebindAllTheKeys.getDebugKeybindString(null))));
 
-		chatHud.addMessage(new LiteralText(I18n.translate("debug.copy_location.help")
+		chatHud.addMessage(Text.literal(I18n.translate("debug.copy_location.help")
 				.replaceFirst("F3 \\+ C", RebindAllTheKeys.getDebugKeybindString(COPY_LOCATION))
 				.replaceFirst("F3 \\+ C", RebindAllTheKeys.getDebugKeybindString(INTENTIONAL_CRASH))
 		));
@@ -114,7 +112,7 @@ public abstract class KeyboardMixin {
 	}
 
 	private Text changeBinding(String key, String old, KeyBinding binding) {
-		return new LiteralText(I18n.translate(key).replace("F3 + " + old, RebindAllTheKeys.getDebugKeybindString(binding)));
+		return Text.literal(I18n.translate(key).replace("F3 + " + old, RebindAllTheKeys.getDebugKeybindString(binding)));
 	}
 
 }
