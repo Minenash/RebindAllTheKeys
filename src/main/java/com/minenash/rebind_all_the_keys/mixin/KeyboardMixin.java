@@ -9,6 +9,7 @@ import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import org.lwjgl.glfw.GLFW;
@@ -68,17 +69,15 @@ public abstract class KeyboardMixin {
 				.append(" ").append(I18n.translate(key).replace("F3 + C", RebindAllTheKeys.getDebugKeybindString(INTENTIONAL_CRASH))));
 	}
 
-//	@Redirect(method = "onKey", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;hasShiftDown()Z"))
-//	public boolean remapProfilerModifier() {
-//		System.out.println("7");
-//		return RebindAllTheKeys.PROFILER.isPressed();
-//	}
-//
-//	@Redirect(method = "onKey", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;hasAltDown()Z"))
-//	public boolean remapTpsModifier() {
-//		System.out.println("8");
-//		return RebindAllTheKeys.TPS.isPressed();
-//	}
+	@Redirect(method = "onKey", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;hasShiftDown()Z"))
+	public boolean remapProfilerModifier() {
+		return InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), RebindAllTheKeys.getKeyCode(PROFILER));
+	}
+
+	@Redirect(method = "onKey", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;hasAltDown()Z"))
+	public boolean remapTpsModifier() {
+		return InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), RebindAllTheKeys.getKeyCode(RebindAllTheKeys.TPS));
+	}
 
 	@Inject(method = "processF3", at = @At("HEAD"), cancellable = true)
 	public void showDebugKeybinds(int key, CallbackInfoReturnable<Boolean> info) {

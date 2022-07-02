@@ -4,7 +4,9 @@
   "package": "com.minenash.rebind_all_the_keys.mixin",
   "compatibilityLevel": "JAVA_16",
   "client": [
+    "ClientPlayerEntityMixin",
     "ControlsListWidgetKeyBindingEntryMixin",
+    "ControlsOptionsScreenMixin",
     "DebugHudMixin",
     "GameModeSelectionScreenMixin",
     "GameOptionsMixin",
@@ -13,15 +15,12 @@
     "InputUtilTypeAccessor",
     "KeyBindingMixin",
     "KeybindsScreenMixin",
-    "KeyboardMixin"
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  },
-  "mixins": [
-    "ControlsOptionsScreenMixin",
+    "KeyboardMixin",
     "MouseMixin",
     "MultiplayerScreenMixin",
     "ScreenMixin"
-  ]
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

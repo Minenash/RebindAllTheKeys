@@ -20,7 +20,8 @@ import java.util.Map;
 public class RebindAllTheKeys implements ClientModInitializer {
 
 	public static boolean isAmecsInstalled = false;
-	public static final SimpleOption<Boolean> macCommandToControl = SimpleOption.ofBoolean("options.cmdToCtrl", false);
+	public static final SimpleOption<Boolean> macCommandToControl = SimpleOption.ofBoolean("rebind_all_the_keys.controls.cmdToCtrl", false);
+	public static final SimpleOption<Boolean> doubleTapSprint = SimpleOption.ofBoolean("rebind_all_the_keys.controls.doubleTapSprint", false);
 
 	public static final Map<Integer, Integer> DEBUG_REBINDS = new HashMap<>();
 
@@ -40,8 +41,8 @@ public class RebindAllTheKeys implements ClientModInitializer {
 	public static final KeyBinding GAMEMODE_SWITCHER = debugKeybind("gamemode_switcher", -GLFW.GLFW_KEY_F4);
 	public static final KeyBinding INTENTIONAL_CRASH = debugKeybind("intentional_crash", -GLFW.GLFW_KEY_C);
 
-	//public static final KeyBinding PROFILER = debugKeybind("profiler", GLFW.GLFW_KEY_LEFT_SHIFT);
-	//public static final KeyBinding TPS = debugKeybind("tps", GLFW.GLFW_KEY_LEFT_ALT);
+	public static final KeyBinding PROFILER = debugKeybind("profiler", -GLFW.GLFW_KEY_LEFT_SHIFT);
+	public static final KeyBinding TPS = debugKeybind("tps", -GLFW.GLFW_KEY_LEFT_ALT);
 
 	public static final KeyBinding TOGGLE_HUD = miscKeybind("toggle_hud", GLFW.GLFW_KEY_F1);
 	public static final KeyBinding TOGGLE_NARRATOR_OVERRIDE = miscKeybind("toggle_narrator_override", GLFW.GLFW_KEY_UNKNOWN);
@@ -66,7 +67,6 @@ public class RebindAllTheKeys implements ClientModInitializer {
 		KeyBindingHelper.registerKeyBinding(binding);
 		return binding;
 	}
-
 
 	@Override
 	public void onInitializeClient() {

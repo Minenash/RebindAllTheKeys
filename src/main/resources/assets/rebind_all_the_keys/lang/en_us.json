@@ -26,5 +26,6 @@
   "rebind_all_the_keys.keybind.hotbar_next_override" : "Hotbar Next (Override)",
   "rebind_all_the_keys.keybind.hotbar_previous_override" : "Hotbar Previous (Override)",
 
-  "options.cmdToCtrl": "Cmd → Ctrl"
+  "rebind_all_the_keys.controls.cmdToCtrl": "Cmd → Ctrl",
+  "rebind_all_the_keys.controls.doubleTapSprint": "Double Tap Sprint"
 }

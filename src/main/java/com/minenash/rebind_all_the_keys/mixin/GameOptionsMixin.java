@@ -42,6 +42,7 @@ public class GameOptionsMixin {
     public void addMacCommandToControlOption(GameOptions.Visitor visitor, CallbackInfo info) {
         if (MinecraftClient.IS_SYSTEM_MAC)
             visitor.accept("macCommandToControl", RebindAllTheKeys.macCommandToControl);
+        visitor.accept("doubleTapSprint", RebindAllTheKeys.doubleTapSprint);
     }
 
 }
