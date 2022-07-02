@@ -24,7 +24,7 @@
   "mixins": [
     "rebind_all_the_keys.mixins.json"
   ],
-
+  "accessWidener": "rebind_all_the_keys.accesswidener",
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",

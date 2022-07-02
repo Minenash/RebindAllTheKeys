@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.option.KeyBinding;
+import net.minecraft.client.option.SimpleOption;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -19,6 +20,7 @@ import java.util.Map;
 public class RebindAllTheKeys implements ClientModInitializer {
 
 	public static boolean isAmecsInstalled = false;
+	public static final SimpleOption<Boolean> macCommandToControl = SimpleOption.ofBoolean("options.cmdToCtrl", false);
 
 	public static final Map<Integer, Integer> DEBUG_REBINDS = new HashMap<>();
 
@@ -44,15 +46,25 @@ public class RebindAllTheKeys implements ClientModInitializer {
 	public static final KeyBinding TOGGLE_HUD = miscKeybind("toggle_hud", GLFW.GLFW_KEY_F1);
 	public static final KeyBinding TOGGLE_NARRATOR_OVERRIDE = miscKeybind("toggle_narrator_override", GLFW.GLFW_KEY_UNKNOWN);
 	public static final KeyBinding TOGGLE_AUTO_JUMP = miscKeybind("toggle_auto_jump", GLFW.GLFW_KEY_UNKNOWN);
+	public static final KeyBinding REFRESH_SERVER_LIST = miscKeybind("refresh_server_list", GLFW.GLFW_KEY_F5);
+
+	public static final KeyBinding HOTBAR_NEXT_OVERRIDE = keybind("hotbar_next_override", GLFW.GLFW_KEY_UNKNOWN, KeyBinding.INVENTORY_CATEGORY);
+	public static final KeyBinding HOTBAR_PREVIOUS_OVERRIDE = keybind("hotbar_previous_override", GLFW.GLFW_KEY_UNKNOWN, KeyBinding.INVENTORY_CATEGORY);
 
 	public static Text gamemodeSwitcherSelectText = null;
 
 	private static KeyBinding debugKeybind(String key, int defaultKey) {
-		return new KeyBinding("rebind_all_the_keys.keybind." + key, InputUtil.Type.KEYSYM, defaultKey, "rebind_all_the_keys.keybind_group.debug");
+		return keybind(key, defaultKey, "rebind_all_the_keys.keybind_group.debug");
 	}
 
 	private static KeyBinding miscKeybind(String key, int defaultKey) {
-		return new KeyBinding("rebind_all_the_keys.keybind." + key, InputUtil.Type.KEYSYM, defaultKey, "key.categories.misc");
+		return keybind(key, defaultKey, KeyBinding.MISC_CATEGORY);
+	}
+
+	private static KeyBinding keybind(String key, int defaultKey, String category) {
+		KeyBinding binding = new KeyBinding("rebind_all_the_keys.keybind." + key, InputUtil.Type.KEYSYM, defaultKey, category);
+		KeyBindingHelper.registerKeyBinding(binding);
+		return binding;
 	}
 
 
@@ -60,35 +72,19 @@ public class RebindAllTheKeys implements ClientModInitializer {
 	public void onInitializeClient() {
 		isAmecsInstalled = FabricLoader.getInstance().isModLoaded("amecs");
 
-		KeyBindingHelper.registerKeyBinding(DEBUG_KEY);
-		KeyBindingHelper.registerKeyBinding(RELOAD_CHUNKS);
-		KeyBindingHelper.registerKeyBinding(SHOW_HITBOXES);
-		KeyBindingHelper.registerKeyBinding(COPY_LOCATION);
-		KeyBindingHelper.registerKeyBinding(CLEAR_CHAT);
-		KeyBindingHelper.registerKeyBinding(CYCLE_RENDER_DISTANCE);
-		KeyBindingHelper.registerKeyBinding(SHOW_CHUNK_BOUNDARIES);
-		KeyBindingHelper.registerKeyBinding(ADVANCE_TOOLTIPS);
-		KeyBindingHelper.registerKeyBinding(COPY_DATA_TO_CLIPBOARD);
-		KeyBindingHelper.registerKeyBinding(SWAP_GAMEMODE);
-		KeyBindingHelper.registerKeyBinding(PAUSE_ON_LOST_FOCUS);
-		KeyBindingHelper.registerKeyBinding(SHOW_DEBUG_BINDINGS);
-		KeyBindingHelper.registerKeyBinding(RELOAD_RESOURCES);
-		KeyBindingHelper.registerKeyBinding(GAMEMODE_SWITCHER);
-
-		//KeyBindingHelper.registerKeyBinding(PROFILER);
-		//KeyBindingHelper.registerKeyBinding(TPS);
-
-		KeyBindingHelper.registerKeyBinding(INTENTIONAL_CRASH);
-		KeyBindingHelper.registerKeyBinding(TOGGLE_NARRATOR_OVERRIDE);
-		KeyBindingHelper.registerKeyBinding(TOGGLE_HUD);
-		KeyBindingHelper.registerKeyBinding(TOGGLE_AUTO_JUMP);
-
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			while (TOGGLE_AUTO_JUMP.wasPressed()) {
 				boolean value = !client.options.getAutoJump().getValue();
 				client.options.getAutoJump().setValue(value);
 				client.player.sendMessage(Text.translatable("rebind_all_the_keys.keybind.toggle_auto_jump.msg." + value), true);
 			}
+
+			while (HOTBAR_NEXT_OVERRIDE.wasPressed())
+				client.player.getInventory().scrollInHotbar(-1);
+
+			while (HOTBAR_PREVIOUS_OVERRIDE.wasPressed())
+				client.player.getInventory().scrollInHotbar(1);
+
 		});
 
 	}

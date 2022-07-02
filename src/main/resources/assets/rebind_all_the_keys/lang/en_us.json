@@ -21,5 +21,10 @@
   "rebind_all_the_keys.keybind.toggle_hud" : "Toggle Hud",
   "rebind_all_the_keys.keybind.toggle_auto_jump" : "Toggle Auto Jump",
   "rebind_all_the_keys.keybind.toggle_auto_jump.msg.true" : "Enabled Auto Jump",
-  "rebind_all_the_keys.keybind.toggle_auto_jump.msg.false" : "Disabled Auto Jump"
+  "rebind_all_the_keys.keybind.toggle_auto_jump.msg.false" : "Disabled Auto Jump",
+  "rebind_all_the_keys.keybind.refresh_server_list" : "Refresh Server List",
+  "rebind_all_the_keys.keybind.hotbar_next_override" : "Hotbar Next (Override)",
+  "rebind_all_the_keys.keybind.hotbar_previous_override" : "Hotbar Previous (Override)",
+
+  "options.cmdToCtrl": "Cmd → Ctrl"
 }
