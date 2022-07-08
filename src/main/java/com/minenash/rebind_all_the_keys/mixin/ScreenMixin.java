@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import static com.minenash.rebind_all_the_keys.RebindAllTheKeys.DEBUG_KEY;
+import static com.minenash.rebind_all_the_keys.RebindAllTheKeys.*;
 
 @Mixin(Screen.class)
 public class ScreenMixin {
@@ -20,4 +20,8 @@ public class ScreenMixin {
         return MinecraftClient.IS_SYSTEM_MAC;
     }
 
+    @ModifyConstant(method = "keyPressed", constant = @Constant(intValue = GLFW.GLFW_KEY_ESCAPE /*256*/))
+    public int remapQuitKey(int _key) {
+	return RebindAllTheKeys.getKeyCode(QUIT);
+    }
 }

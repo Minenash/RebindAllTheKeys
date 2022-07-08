@@ -45,6 +45,7 @@ public class RebindAllTheKeys implements ClientModInitializer {
 	public static final KeyBinding PROFILER = debugKeybind("profiler", -GLFW.GLFW_KEY_LEFT_SHIFT);
 	public static final KeyBinding TPS = debugKeybind("tps", -GLFW.GLFW_KEY_LEFT_ALT);
 
+        public static final KeyBinding QUIT = miscKeybind("quit", GLFW.GLFW_KEY_ESCAPE);
 	public static final KeyBinding TOGGLE_HUD = miscKeybind("toggle_hud", GLFW.GLFW_KEY_F1);
 	public static final KeyBinding TOGGLE_NARRATOR_OVERRIDE = miscKeybind("toggle_narrator_override", GLFW.GLFW_KEY_UNKNOWN);
 	public static final KeyBinding TOGGLE_AUTO_JUMP = miscKeybind("toggle_auto_jump", GLFW.GLFW_KEY_UNKNOWN);

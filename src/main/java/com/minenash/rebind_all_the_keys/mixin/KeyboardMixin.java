@@ -49,6 +49,11 @@ public abstract class KeyboardMixin {
 		return RebindAllTheKeys.getKeyCode(INTENTIONAL_CRASH);
 	}
 
+	@ModifyConstant(method = "onKey", constant = @Constant(intValue = GLFW.GLFW_KEY_ESCAPE /*256*/))
+	public int remapQuitKey(int _key) {
+		return RebindAllTheKeys.getKeyCode(QUIT);
+	}
+
 	@ModifyConstant(method = "onKey", constant = @Constant(intValue = GLFW.GLFW_KEY_B /*66*/))
 	public int remapToggleNarratorCrashKey(int key) {
 		if (TOGGLE_NARRATOR_OVERRIDE.isUnbound())
