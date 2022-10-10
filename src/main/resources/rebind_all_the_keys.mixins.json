@@ -13,6 +13,7 @@
     "InputKeyMixin",
     "InputUtilKeyMixin",
     "InputUtilTypeAccessor",
+    "KeyBindingAccessor",
     "KeyBindingMixin",
     "KeybindsScreenMixin",
     "KeyboardMixin",
