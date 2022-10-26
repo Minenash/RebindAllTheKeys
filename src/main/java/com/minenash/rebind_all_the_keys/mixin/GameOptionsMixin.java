@@ -6,9 +6,11 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.KeyBinding;
+import net.minecraft.client.option.SimpleOption;
 import net.minecraft.client.util.InputUtil;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -17,9 +19,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Environment(EnvType.CLIENT)
 @Mixin(GameOptions.class)
-public class GameOptionsMixin {
+public abstract class GameOptionsMixin {
+
 
     @Shadow protected MinecraftClient client;
+
 
     @Inject(method = "load", at = @At("TAIL"))
     public void generateDebugRebinds(CallbackInfo _info) {

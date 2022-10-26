@@ -24,6 +24,7 @@
     "defaultRequire": 1
   },
   "mixins": [
+    "GameOptionsAccessor",
     "HandledScreenMixin"
   ]
 }

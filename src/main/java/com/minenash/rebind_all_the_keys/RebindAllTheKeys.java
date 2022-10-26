@@ -1,5 +1,7 @@
 package com.minenash.rebind_all_the_keys;
 
+import com.minenash.rebind_all_the_keys.mixin.GameOptionsAccessor;
+import com.minenash.rebind_all_the_keys.mixin.GameOptionsMixin;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -7,6 +9,7 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.option.SimpleOption;
 import net.minecraft.client.util.InputUtil;
@@ -45,6 +48,7 @@ public class RebindAllTheKeys implements ClientModInitializer {
 	public static final KeyBinding PROFILER = debugKeybind("profiler", -GLFW.GLFW_KEY_LEFT_SHIFT);
 	public static final KeyBinding TPS = debugKeybind("tps", -GLFW.GLFW_KEY_LEFT_ALT);
 
+	public static final KeyBinding QUIT_ALIAS = miscKeybind("quit", GLFW.GLFW_KEY_UNKNOWN);
 	public static final KeyBinding TOGGLE_HUD = miscKeybind("toggle_hud", GLFW.GLFW_KEY_F1);
 	public static final KeyBinding TOGGLE_NARRATOR_OVERRIDE = miscKeybind("toggle_narrator_override", GLFW.GLFW_KEY_UNKNOWN);
 	public static final KeyBinding TOGGLE_AUTO_JUMP = miscKeybind("toggle_auto_jump", GLFW.GLFW_KEY_UNKNOWN);
@@ -86,6 +90,17 @@ public class RebindAllTheKeys implements ClientModInitializer {
 
 			while (HOTBAR_PREVIOUS_OVERRIDE.wasPressed())
 				client.player.getInventory().scrollInHotbar(1);
+
+			if (isKeybindPressed(DEBUG_KEY) && isKeybindPressed(CYCLE_RENDER_DISTANCE)) {
+				SimpleOption<Integer> option = ((GameOptionsAccessor) client.options).getViewDistance();
+				int newValue = option.getValue() + (Screen.hasShiftDown() ? -1 : 1);
+				int max = client.is64Bit() && Runtime.getRuntime().maxMemory() >= 1000000000L ? 32 : 16;
+				if (newValue < 2) newValue = 2;
+				if (newValue > max) newValue = max;
+
+				client.player.sendMessage(Text.literal("§e§l[Debug]:§f Set Render Distance to " + newValue));
+				option.setValue(newValue);
+			}
 
 		});
 

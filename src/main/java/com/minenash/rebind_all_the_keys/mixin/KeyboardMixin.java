@@ -17,6 +17,7 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.*;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static com.minenash.rebind_all_the_keys.RebindAllTheKeys.*;
@@ -47,6 +48,19 @@ public abstract class KeyboardMixin {
 	@ModifyConstant(method = "onKey", constant = @Constant(intValue = GLFW.GLFW_KEY_C /*67*/))
 	public int remapIntentionalCrashKey(int _key) {
 		return RebindAllTheKeys.getKeyCode(INTENTIONAL_CRASH);
+	}
+
+	int key;
+	@Inject(method = "onKey", at = @At("HEAD"))
+	public void getKey(long window, int key, int scancode, int action, int modifiers, CallbackInfo ci) {
+		this.key = key;
+	}
+
+	@ModifyConstant(method = "onKey", constant = @Constant(intValue = GLFW.GLFW_KEY_ESCAPE /*256*/))
+	public int remapQuitKey(int _key) {
+		if (key == 256)
+			return key;
+		return RebindAllTheKeys.getKeyCode(QUIT_ALIAS);
 	}
 
 	@ModifyConstant(method = "onKey", constant = @Constant(intValue = GLFW.GLFW_KEY_B /*66*/))
