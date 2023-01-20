@@ -9,6 +9,7 @@
   "rebind_all_the_keys.keybind.show_chunk_boundaries" : "Show Chunk Boundaries",
   "rebind_all_the_keys.keybind.advance_tooltips" : "Advance Tooltips",
   "rebind_all_the_keys.keybind.copy_data_to_clipboard" : "Inspect Block/Entity Data",
+  "rebind_all_the_keys.keybind.start_stop_profiling" : "Start/Stop Profiling",
   "rebind_all_the_keys.keybind.swap_gamemode" : "Prev Gamemode <-> Spectator",
   "rebind_all_the_keys.keybind.pause_on_lost_focus" : "Toggle Pause on Lost Focus",
   "rebind_all_the_keys.keybind.show_debug_bindings" : "Show Debug Keybindings",

@@ -38,6 +38,7 @@ public class RebindAllTheKeys implements ClientModInitializer {
 	public static final KeyBinding SHOW_CHUNK_BOUNDARIES = debugKeybind("show_chunk_boundaries", -GLFW.GLFW_KEY_G);
 	public static final KeyBinding ADVANCE_TOOLTIPS = debugKeybind("advance_tooltips", -GLFW.GLFW_KEY_H);
 	public static final KeyBinding COPY_DATA_TO_CLIPBOARD = debugKeybind("copy_data_to_clipboard", -GLFW.GLFW_KEY_I);
+	public static final KeyBinding START_STOP_PROFILING = debugKeybind("start_stop_profiling", -GLFW.GLFW_KEY_L);
 	public static final KeyBinding SWAP_GAMEMODE = debugKeybind("swap_gamemode", -GLFW.GLFW_KEY_N);
 	public static final KeyBinding PAUSE_ON_LOST_FOCUS = debugKeybind("pause_on_lost_focus", -GLFW.GLFW_KEY_P);
 	public static final KeyBinding SHOW_DEBUG_BINDINGS = debugKeybind("show_debug_bindings", -GLFW.GLFW_KEY_Q);
@@ -116,6 +117,7 @@ public class RebindAllTheKeys implements ClientModInitializer {
 		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(SHOW_CHUNK_BOUNDARIES).getCode(), GLFW.GLFW_KEY_G);
 		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(ADVANCE_TOOLTIPS).getCode(), GLFW.GLFW_KEY_H);
 		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(COPY_DATA_TO_CLIPBOARD).getCode(), GLFW.GLFW_KEY_I);
+		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(START_STOP_PROFILING).getCode(), GLFW.GLFW_KEY_L);
 		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(SWAP_GAMEMODE).getCode(), GLFW.GLFW_KEY_N);
 		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(PAUSE_ON_LOST_FOCUS).getCode(), GLFW.GLFW_KEY_P);
 		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(SHOW_DEBUG_BINDINGS).getCode(), GLFW.GLFW_KEY_Q);

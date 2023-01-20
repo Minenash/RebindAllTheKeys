@@ -103,10 +103,11 @@ public abstract class KeyboardMixin {
 		chatHud.addMessage(changeBinding("debug.reload_chunks.help", "A", RELOAD_CHUNKS));
 		chatHud.addMessage(changeBinding("debug.show_hitboxes.help", "B", SHOW_HITBOXES));
 		chatHud.addMessage(changeBinding("debug.clear_chat.help", "D", CLEAR_CHAT));
-		chatHud.addMessage(changeBinding("debug.cycle_renderdistance.help", "F", CYCLE_RENDER_DISTANCE));
+		chatHud.addMessage(Text.literal(getDebugKeybindString(CYCLE_RENDER_DISTANCE) + " = Cycle render distance, hold shift to cycle downwards"));
 		chatHud.addMessage(changeBinding("debug.chunk_boundaries.help", "G", SHOW_CHUNK_BOUNDARIES));
 		chatHud.addMessage(changeBinding("debug.advanced_tooltips.help", "H", ADVANCE_TOOLTIPS));
 		chatHud.addMessage(changeBinding("debug.inspect.help", "I", COPY_DATA_TO_CLIPBOARD));
+		chatHud.addMessage(changeBinding("debug.profiling.help", "L", START_STOP_PROFILING));
 		chatHud.addMessage(changeBinding("debug.creative_spectator.help", "N", SWAP_GAMEMODE));
 		chatHud.addMessage(changeBinding("debug.pause_focus.help", "P", PAUSE_ON_LOST_FOCUS));
 		chatHud.addMessage(changeBinding("debug.help.help", "Q", SHOW_DEBUG_BINDINGS));
@@ -115,9 +116,14 @@ public abstract class KeyboardMixin {
 
 		chatHud.addMessage(Text.literal(I18n.translate("debug.pause.help").replace("F3", RebindAllTheKeys.getDebugKeybindString(null))));
 
-		chatHud.addMessage(Text.literal(I18n.translate("debug.copy_location.help")
+		String msg = I18n.translate("debug.copy_location.help");
+		chatHud.addMessage(Text.literal(msg
+				.substring(0, msg.indexOf(','))
 				.replaceFirst("F3 \\+ C", RebindAllTheKeys.getDebugKeybindString(COPY_LOCATION))
-				.replaceFirst("F3 \\+ C", RebindAllTheKeys.getDebugKeybindString(INTENTIONAL_CRASH))
+		));
+		chatHud.addMessage(Text.literal(msg
+				.substring(msg.indexOf("F3", msg.indexOf(',')))
+				.replaceFirst("F3 \\+ C", RebindAllTheKeys.getDebugKeybindString(INTENTIONAL_CRASH) + " (held) =")
 		));
 
 		info.setReturnValue(true);
