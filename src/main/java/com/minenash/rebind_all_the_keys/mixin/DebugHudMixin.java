@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(DebugHud.class)
 public class DebugHudMixin {
 
-    @ModifyConstant(method = "renderLeftText", constant = @Constant(stringValue = "For help: press F3 + Q"))
+    @ModifyConstant(method = "drawLeftText", constant = @Constant(stringValue = "For help: press F3 + Q"))
     public String forHelp(String _in) {
         return "For help press: " + RebindAllTheKeys.getDebugKeybindString(RebindAllTheKeys.SHOW_DEBUG_BINDINGS);
     }

@@ -13,4 +13,5 @@ public interface InputUtilTypeAccessor {
 
     @Accessor
     Int2ObjectMap<InputUtil.Key> getMap();
+
 }

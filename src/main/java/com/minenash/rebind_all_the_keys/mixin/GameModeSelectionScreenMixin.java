@@ -26,7 +26,7 @@ public class GameModeSelectionScreenMixin {
     }
 
     @ModifyArg(method = "render", at = @At(value = "INVOKE",
-            target = "Lnet/minecraft/client/gui/screen/GameModeSelectionScreen;drawCenteredTextWithShadow(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/text/Text;III)V"))
+            target = "Lnet/minecraft/client/gui/DrawContext;drawCenteredTextWithShadow(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/text/Text;III)V"))
     public Text getGamemodeSwitcherKeyString(Text _in) {
         if (RebindAllTheKeys.gamemodeSwitcherSelectText == null)
             RebindAllTheKeys.updateGamemodeSwitcherSelectText();
