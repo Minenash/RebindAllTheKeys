@@ -14,11 +14,9 @@ public abstract class ClientPlayerEntityMixin {
 
     @Shadow @Final protected MinecraftClient client;
 
-    @Shadow public abstract void setSprinting(boolean sprinting);
-
     @Redirect(method = "tickMovement", at = @At(value = "INVOKE", ordinal = 0, target = "Lnet/minecraft/client/network/ClientPlayerEntity;setSprinting(Z)V"))
     private void disableDoubleTapSprint(ClientPlayerEntity instance, boolean sprinting) {
         if (RebindAllTheKeys.doubleTapSprint.getValue() || client.options.sprintKey.isPressed())
-            setSprinting(true);
+            ((ClientPlayerEntity)(Object)this).setSprinting(true);
     }
 }

@@ -27,7 +27,7 @@ public class ControlsOptionsScreenMixin extends GameOptionsScreen{
     @Inject(method = "init", at = @At(value = "INVOKE", ordinal = 6, target = "Lnet/minecraft/client/gui/screen/option/ControlsOptionsScreen;addDrawableChild(Lnet/minecraft/client/gui/Element;)Lnet/minecraft/client/gui/Element;"), locals = LocalCapture.CAPTURE_FAILHARD)
     public void addMacCommandToControl(CallbackInfo info, int i, int j, int k) {
         if (MinecraftClient.IS_SYSTEM_MAC)
-            this.addDrawableChild(RebindAllTheKeys.macCommandToControl.createButton(gameOptions, j, k, 150));
-        this.addDrawableChild(RebindAllTheKeys.doubleTapSprint.createButton(gameOptions, i, k, 150));
+            this.addDrawableChild(RebindAllTheKeys.macCommandToControl.createWidget(gameOptions, j, k, 150));
+        this.addDrawableChild(RebindAllTheKeys.doubleTapSprint.createWidget(gameOptions, i, k, 150));
     }
 }

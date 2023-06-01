@@ -22,7 +22,7 @@ public class ControlsListWidgetKeyBindingEntryMixin {
 
     @Shadow @Final private KeyBinding binding;
 
-    @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/KeyBinding;equals(Lnet/minecraft/client/option/KeyBinding;)Z"))
+    @Redirect(method = "update", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/KeyBinding;equals(Lnet/minecraft/client/option/KeyBinding;)Z"))
     public boolean ignoreConflictIfDebug(KeyBinding a, KeyBinding b) {
         if (a == RebindAllTheKeys.INTENTIONAL_CRASH || b == RebindAllTheKeys.INTENTIONAL_CRASH)
             return false;
