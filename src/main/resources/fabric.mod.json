@@ -26,7 +26,7 @@
   ],
   "accessWidener": "rebind_all_the_keys.accesswidener",
   "depends": {
-    "fabricloader": ">=0.11.3",
+    "fabricloader": ">=0.14.21",
     "fabric": "*",
     "minecraft": ">=1.19.4"
   }
