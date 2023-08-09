@@ -16,6 +16,7 @@
     "KeyBindingMixin",
     "KeybindsScreenMixin",
     "KeyboardMixin",
+    "MinecraftClientMixin",
     "MouseMixin",
     "MultiplayerScreenMixin",
     "ScreenMixin"

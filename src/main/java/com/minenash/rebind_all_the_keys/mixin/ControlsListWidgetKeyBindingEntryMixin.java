@@ -40,7 +40,7 @@ public class ControlsListWidgetKeyBindingEntryMixin {
                && !msg.contains(I18n.translate("rebind_all_the_keys.keybind.intentional_crash.button.held")))
                 button.setMessage(button.getMessage().copy().append(Text.translatable("rebind_all_the_keys.keybind.intentional_crash.button.held")));
         }
-        button.renderButton(context, mouseX, mouseY, delta);
+        button.render(context, mouseX, mouseY, delta);
 
     }
 
