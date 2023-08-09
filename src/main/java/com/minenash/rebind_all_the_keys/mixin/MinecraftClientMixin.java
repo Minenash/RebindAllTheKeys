@@ -7,13 +7,13 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import static com.minenash.rebind_all_the_keys.RebindAllTheKeys.DROP_STACK;
+import static com.minenash.rebind_all_the_keys.RebindAllTheKeys.DROP_STACK_MODIFIER;
 
 @Mixin(MinecraftClient.class)
 public class MinecraftClientMixin {
 
     @Redirect(method = "handleInputEvents", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;hasControlDown()Z"))
     private boolean handleInputEvents() {
-        return InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), RebindAllTheKeys.getKeyCode(DROP_STACK));
+        return InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), RebindAllTheKeys.getKeyCode(DROP_STACK_MODIFIER));
     }
 }

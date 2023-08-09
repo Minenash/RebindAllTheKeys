@@ -57,7 +57,7 @@ public class RebindAllTheKeys implements ClientModInitializer {
 	public static final KeyBinding HOTBAR_NEXT_OVERRIDE = keybind("hotbar_next_override", GLFW.GLFW_KEY_UNKNOWN, KeyBinding.INVENTORY_CATEGORY);
 	public static final KeyBinding HOTBAR_PREVIOUS_OVERRIDE = keybind("hotbar_previous_override", GLFW.GLFW_KEY_UNKNOWN, KeyBinding.INVENTORY_CATEGORY);
 	public static final KeyBinding QUICK_MOVE = keybind("quick_move", GLFW.GLFW_KEY_LEFT_SHIFT, KeyBinding.INVENTORY_CATEGORY);
-	public static final KeyBinding DROP_STACK = keybind("drop_stack", GLFW.GLFW_KEY_LEFT_CONTROL, KeyBinding.INVENTORY_CATEGORY);
+	public static final KeyBinding DROP_STACK_MODIFIER = keybind("drop_stack_modifier", GLFW.GLFW_KEY_LEFT_CONTROL, KeyBinding.INVENTORY_CATEGORY);
 
 	public static Text gamemodeSwitcherSelectText = null;
 
