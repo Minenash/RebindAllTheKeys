@@ -2,7 +2,7 @@ package com.minenash.rebind_all_the_keys.mixin;
 
 import com.minenash.rebind_all_the_keys.RebindAllTheKeys;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.util.InputUtil;
+import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -14,6 +14,6 @@ public class MinecraftClientMixin {
 
     @Redirect(method = "handleInputEvents", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;hasControlDown()Z"))
     private boolean handleInputEvents() {
-        return InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), RebindAllTheKeys.getKeyCode(DROP_STACK_MODIFIER));
+        return DROP_STACK_MODIFIER.isDefault() ? HandledScreen.hasControlDown() : RebindAllTheKeys.isKeybindPressed(DROP_STACK_MODIFIER);
     }
 }
