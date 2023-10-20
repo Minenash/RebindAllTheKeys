@@ -31,7 +31,7 @@
   "rebind_all_the_keys.keybind.quit" : "Quitter/Fermer le menu (ESC fonctionne toujours)",
   "rebind_all_the_keys.keybind.profiler" : "Graphique du Profil",
   "rebind_all_the_keys.keybind.tps_fps" : "Graphique TPS et FPS",
-  "rebind_all_the_keys.keybind.bandwidth_ping" : "Graphiques de bande passante et de ping",
+  "rebind_all_the_keys.keybind.bandwidth_ping" : "Graphiques du taille du paquet et de ping",
 
   "rebind_all_the_keys.controls.cmdToCtrl": "Cmd → Ctrl",
   "rebind_all_the_keys.controls.doubleTapSprint": "Sprint à double-tap"
