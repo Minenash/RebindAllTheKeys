@@ -45,8 +45,10 @@ public class RebindAllTheKeys implements ClientModInitializer {
 	public static final KeyBinding GAMEMODE_SWITCHER = debugKeybind("gamemode_switcher", -GLFW.GLFW_KEY_F4);
 	public static final KeyBinding INTENTIONAL_CRASH = debugKeybind("intentional_crash", -GLFW.GLFW_KEY_C);
 
-	public static final KeyBinding PROFILER = debugKeybind("profiler", -GLFW.GLFW_KEY_LEFT_SHIFT);
-	public static final KeyBinding TPS = debugKeybind("tps", -GLFW.GLFW_KEY_LEFT_ALT);
+	public static final KeyBinding DYNAMIC_TEXTURE_DUMP = debugKeybind("dynamic_texture_dump", -GLFW.GLFW_KEY_S);
+	public static final KeyBinding CHART_PIE = debugKeybind("profiler", -GLFW.GLFW_KEY_1);
+	public static final KeyBinding CHART_FPS_TPS = debugKeybind("tps_fps", -GLFW.GLFW_KEY_2);
+	public static final KeyBinding CHART_BANDWIDTH_PING = debugKeybind("bandwidth_ping", -GLFW.GLFW_KEY_3);
 
 	public static final KeyBinding QUIT_ALIAS = miscKeybind("quit", GLFW.GLFW_KEY_UNKNOWN);
 	public static final KeyBinding TOGGLE_HUD = miscKeybind("toggle_hud", GLFW.GLFW_KEY_F1);
@@ -123,6 +125,10 @@ public class RebindAllTheKeys implements ClientModInitializer {
 		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(SHOW_DEBUG_BINDINGS).getCode(), GLFW.GLFW_KEY_Q);
 		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(RELOAD_RESOURCES).getCode(), GLFW.GLFW_KEY_T);
 		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(GAMEMODE_SWITCHER).getCode(), GLFW.GLFW_KEY_F4);
+		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(DYNAMIC_TEXTURE_DUMP).getCode(), GLFW.GLFW_KEY_S);
+		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(CHART_PIE).getCode(), GLFW.GLFW_KEY_1);
+		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(CHART_FPS_TPS).getCode(), GLFW.GLFW_KEY_2);
+		DEBUG_REBINDS.put(-KeyBindingHelper.getBoundKeyOf(CHART_BANDWIDTH_PING).getCode(), GLFW.GLFW_KEY_3);
 
 		if (gamemodeSwitcherSelectText != null)
 			updateGamemodeSwitcherSelectText();

@@ -83,16 +83,7 @@ public abstract class KeyboardMixin {
 				.append(" ").append(I18n.translate(key).replace("F3 + C", RebindAllTheKeys.getDebugKeybindString(INTENTIONAL_CRASH))));
 	}
 
-	@Redirect(method = "onKey", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;hasShiftDown()Z"))
-	public boolean remapProfilerModifier() {
-		return InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), RebindAllTheKeys.getKeyCode(PROFILER));
-	}
-
-	@Redirect(method = "onKey", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;hasAltDown()Z"))
-	public boolean remapTpsModifier() {
-		return InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), RebindAllTheKeys.getKeyCode(RebindAllTheKeys.TPS));
-	}
-
+	//TODO: Update
 	@Inject(method = "processF3", at = @At("HEAD"), cancellable = true)
 	public void showDebugKeybinds(int key, CallbackInfoReturnable<Boolean> info) {
 		if (key != 81)

@@ -18,6 +18,7 @@
   "rebind_all_the_keys.keybind.gamemode_switcher" : "Gamemode Switcher",
   "rebind_all_the_keys.keybind.intentional_crash" : "Intentional Crash",
   "rebind_all_the_keys.keybind.intentional_crash.button.held" : " (held)",
+  "rebind_all_the_keys.keybind.dynamic_texture_dump" : "Dynamic Texture Dump",
   "rebind_all_the_keys.keybind.toggle_narrator_override" : "Toggle Narrator (Override)",
   "rebind_all_the_keys.keybind.toggle_hud" : "Toggle Hud",
   "rebind_all_the_keys.keybind.toggle_auto_jump" : "Toggle Auto Jump",
@@ -29,8 +30,9 @@
   "rebind_all_the_keys.keybind.quick_move" : "Quick Move",
   "rebind_all_the_keys.keybind.drop_stack_modifier" : "Drop Stack Modifier",
   "rebind_all_the_keys.keybind.quit" : "Quit/Close Menu (ESC still work)",
-  "rebind_all_the_keys.keybind.profiler" : "Profiler",
-  "rebind_all_the_keys.keybind.tps" : "TPS Graph",
+  "rebind_all_the_keys.keybind.profiler" : "Graph: Profiler",
+  "rebind_all_the_keys.keybind.tps_fps" : "Graph: FPS & TPS",
+  "rebind_all_the_keys.keybind.bandwidth_ping" : "Graph: Bandwidth & Ping",
 
   "rebind_all_the_keys.controls.cmdToCtrl": "Cmd → Ctrl",
   "rebind_all_the_keys.controls.doubleTapSprint": "Double Tap Sprint"

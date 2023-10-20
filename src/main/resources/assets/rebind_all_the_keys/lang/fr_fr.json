@@ -18,6 +18,7 @@
   "rebind_all_the_keys.keybind.gamemode_switcher" : "Sélecteur de mode de jeu",
   "rebind_all_the_keys.keybind.intentional_crash" : "Crash intentionnel",
   "rebind_all_the_keys.keybind.intentional_crash.button.held" : " (maintenu)",
+  "rebind_all_the_keys.keybind.dynamic_texture_dump" : "Vidage de texture dynamique",
   "rebind_all_the_keys.keybind.toggle_narrator_override" : "Activer/désactiver le narrateur (Remplacement)",
   "rebind_all_the_keys.keybind.toggle_hud" : "Activer/désactiver l'HUD",
   "rebind_all_the_keys.keybind.toggle_auto_jump" : "Activer/désactiver le saut automatique",
@@ -28,8 +29,9 @@
   "rebind_all_the_keys.keybind.hotbar_previous_override" : "Barre d'actions précédente (Remplacement)",
   "rebind_all_the_keys.keybind.quick_move" : "Déplacement rapide",
   "rebind_all_the_keys.keybind.quit" : "Quitter/Fermer le menu (ESC fonctionne toujours)",
-  "rebind_all_the_keys.keybind.profiler" : "Profil",
-  "rebind_all_the_keys.keybind.tps" : "Graphique TPS",
+  "rebind_all_the_keys.keybind.profiler" : "Graphique du Profil",
+  "rebind_all_the_keys.keybind.tps_fps" : "Graphique TPS et FPS",
+  "rebind_all_the_keys.keybind.bandwidth_ping" : "Graphiques de bande passante et de ping",
 
   "rebind_all_the_keys.controls.cmdToCtrl": "Cmd → Ctrl",
   "rebind_all_the_keys.controls.doubleTapSprint": "Sprint à double-tap"
