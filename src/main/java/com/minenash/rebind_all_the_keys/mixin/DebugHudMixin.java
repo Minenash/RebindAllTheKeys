@@ -7,12 +7,7 @@ import net.minecraft.client.gui.hud.DebugHud;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Constant;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import org.spongepowered.asm.mixin.injection.Redirect;
-
-import java.util.List;
+import org.spongepowered.asm.mixin.injection.*;
 
 import static com.minenash.rebind_all_the_keys.RebindAllTheKeys.*;
 
@@ -30,15 +25,16 @@ public class DebugHudMixin {
         return "For help press: " + getDebugKeybindString(SHOW_DEBUG_BINDINGS);
     }
 
-    @Redirect(method = "drawLeftText", at = @At(value = "INVOKE", ordinal = 1, target = "Ljava/util/List;add(Ljava/lang/Object;)Z"))
-    public boolean debugCharts(List<Object> list, Object e) {
-        return list.add("Debug charts: [" + getDebugKeybindString(CHART_PIE) + "] Profiler "
+    @ModifyArg(method = "drawLeftText", at = @At(value = "INVOKE", ordinal = 1, target = "Ljava/util/List;add(Ljava/lang/Object;)Z"))
+    public Object debugCharts(Object e) {
+        return "Debug charts: [" + getDebugKeybindString(CHART_PIE) + "] Profiler "
                 + (renderingChartVisible ? "visible" : "hidden")
                 + "; [" +  getDebugKeybindString(CHART_FPS_TPS) + "] "
-                + (client.getServer() != null ? "FPS + TPS " : "FPS ") + (renderingAndTickChartsVisible ? "visible" : "hidden")
+                + (client.getServer() != null ? "FPS + TPS " : "FPS ")
+                + (renderingAndTickChartsVisible ? "visible" : "hidden")
                 + "; [" + getDebugKeybindString(CHART_BANDWIDTH_PING) + "] "
                 + (!this.client.isInSingleplayer() ? "Bandwidth + Ping" : "Ping")
-                + (packetSizeAndPingChartsVisible ? " visible" : " hidden"));
+                + (packetSizeAndPingChartsVisible ? " visible" : " hidden");
     }
 
 }
