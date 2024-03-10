@@ -45,6 +45,8 @@ public abstract class GameOptionsMixin {
         if (MinecraftClient.IS_SYSTEM_MAC)
             visitor.accept("macCommandToControl", RebindAllTheKeys.macCommandToControl);
         visitor.accept("doubleTapSprint", RebindAllTheKeys.doubleTapSprint);
+        visitor.accept("persistentSprint", RebindAllTheKeys.persistentSprint);
+        visitor.accept("persistentSneak", RebindAllTheKeys.persistentSneak);
     }
 
 }

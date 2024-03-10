@@ -15,6 +15,7 @@
     "InputUtilTypeAccessor",
     "KeyBindingMixin",
     "KeybindsScreenMixin",
+    "KeyboardInputMixin",
     "KeyboardMixin",
     "MinecraftClientMixin",
     "MouseMixin",
@@ -26,6 +27,7 @@
   },
   "mixins": [
     "GameOptionsAccessor",
-    "HandledScreenMixin"
+    "HandledScreenMixin",
+    "LivingEntityMixin"
   ]
 }

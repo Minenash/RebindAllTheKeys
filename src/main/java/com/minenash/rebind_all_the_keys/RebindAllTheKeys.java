@@ -24,7 +24,13 @@ public class RebindAllTheKeys implements ClientModInitializer {
 
 	public static boolean isAmecsInstalled = false;
 	public static final SimpleOption<Boolean> macCommandToControl = SimpleOption.ofBoolean("rebind_all_the_keys.controls.cmdToCtrl", false);
-	public static final SimpleOption<Boolean> doubleTapSprint = SimpleOption.ofBoolean("rebind_all_the_keys.controls.doubleTapSprint", false);
+	public static final SimpleOption<Boolean> doubleTapSprint = SimpleOption.ofBoolean("rebind_all_the_keys.controls.doubleTapSprint", true);
+	public static final SimpleOption<Boolean> doubleTapFly = SimpleOption.ofBoolean("rebind_all_the_keys.controls.doubleTapFly", true);
+
+	public static final SimpleOption<Boolean> persistentSprint = SimpleOption.ofBoolean("rebind_all_the_keys.controls.persistentSprint", true);
+	public static final SimpleOption<Boolean> persistentSneak = SimpleOption.ofBoolean("rebind_all_the_keys.controls.persistentSneak", false);
+
+	public static boolean dontDisableSprint = false;
 
 	public static final Map<Integer, Integer> DEBUG_REBINDS = new HashMap<>();
 
