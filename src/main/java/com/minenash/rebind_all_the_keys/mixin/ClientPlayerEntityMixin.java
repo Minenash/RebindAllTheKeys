@@ -33,5 +33,9 @@ public abstract class ClientPlayerEntityMixin {
         RebindAllTheKeys.dontDisableSprint = true;
     }
 
+    @ModifyExpressionValue(method = "tickMovement", at = @At(value = "FIELD", ordinal = 2, target = "Lnet/minecraft/client/input/Input;jumping:Z"))
+    public boolean disableDoubleTapFly(boolean original) {
+        return RebindAllTheKeys.doubleTapFly.getValue() && original;
+    }
 
 }
