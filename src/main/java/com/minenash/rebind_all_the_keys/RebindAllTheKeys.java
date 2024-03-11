@@ -69,6 +69,11 @@ public class RebindAllTheKeys implements ClientModInitializer {
 
 	public static final KeyBinding FLY = keybind("fly", GLFW.GLFW_KEY_UNKNOWN, KeyBinding.MOVEMENT_CATEGORY);
 
+	public static final InputUtil.Key SCROLL_UP = InputUtil.Type.MOUSE.createFromCode(100);
+	public static final InputUtil.Key SCROLL_DOWN = InputUtil.Type.MOUSE.createFromCode(101);
+	public static final InputUtil.Key SCROLL_LEFT = InputUtil.Type.MOUSE.createFromCode(102);
+	public static final InputUtil.Key SCROLL_RIGHT = InputUtil.Type.MOUSE.createFromCode(103);
+
 	public static Text gamemodeSwitcherSelectText = null;
 
 	private static KeyBinding debugKeybind(String key, int defaultKey) {
@@ -90,6 +95,11 @@ public class RebindAllTheKeys implements ClientModInitializer {
 		isAmecsInstalled = FabricLoader.getInstance().isModLoaded("amecs");
 
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
+			KeyBinding.setKeyPressed(SCROLL_UP, false);
+			KeyBinding.setKeyPressed(SCROLL_DOWN, false);
+			KeyBinding.setKeyPressed(SCROLL_LEFT, false);
+			KeyBinding.setKeyPressed(SCROLL_RIGHT, false);
+
 			while (TOGGLE_AUTO_JUMP.wasPressed()) {
 				boolean value = !client.options.getAutoJump().getValue();
 				client.options.getAutoJump().setValue(value);
@@ -112,6 +122,8 @@ public class RebindAllTheKeys implements ClientModInitializer {
 				client.player.sendMessage(Text.literal("§e§l[Debug]:§f Set Render Distance to " + newValue));
 				option.setValue(newValue);
 			}
+
+
 
 		});
 

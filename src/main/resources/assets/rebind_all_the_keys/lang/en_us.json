@@ -33,9 +33,15 @@
   "rebind_all_the_keys.keybind.profiler" : "Graph: Profiler",
   "rebind_all_the_keys.keybind.tps_fps" : "Graph: FPS & TPS",
   "rebind_all_the_keys.keybind.bandwidth_ping" : "Graph: Packet Size & Ping",
+  "rebind_all_the_keys.keybind.fly" : "Fly",
 
   "rebind_all_the_keys.controls.cmdToCtrl": "Cmd → Ctrl",
   "rebind_all_the_keys.controls.doubleTapSprint": "Double Tap Sprint",
   "rebind_all_the_keys.controls.doubleTapFly": "Double Tap Fly",
-  "rebind_all_the_keys.key.persistent": "Persistent"
+  "rebind_all_the_keys.key.persistent": "Persistent",
+
+  "key.mouse.101": "Scroll Up",
+  "key.mouse.102": "Scroll Down",
+  "key.mouse.103": "Scroll Left",
+  "key.mouse.104": "Scroll Right"
 }
